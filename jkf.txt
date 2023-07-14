@@ -13,7 +13,7 @@ stage('Build')
 {
 steps{
 echo "Building the Code.."
-bat "mvn clean build"
+bat "mvn build"
 }
 }
 stage('Test') 
