@@ -12,14 +12,14 @@ bat "mvn clean"
 stage('Build') 
 {
 steps{
-echo "Building the Code.."
+echo "Building the Code."
 bat "mvn clean package"
 }
 }
 stage('Test') 
 {
 steps{
-echo "Testing the Code."
+echo "Testing the Code!!"
 bat "mvn test"
 }
 }
