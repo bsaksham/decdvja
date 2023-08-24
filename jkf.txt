@@ -23,5 +23,40 @@ echo "Testing the Code!!"
 bat "mvn test"
 }
 }
+stage('Fortify Clean')
+		{
+		steps
+			{
+			fortifyClean addJVMOptions: '', buildID: 'decdvja', logFile: '', maxHeap: ''
+			}
+		}
+		stage('Fortify Update')
+		{
+		steps
+			{
+			fortifyUpdate locale: 'en', updateServerURL: 'https://update.fortify.com'
+			}
+		}
+		stage('Fortify Transalte')
+		{
+		steps
+			{
+			fortifyTranslate addJVMOptions: '', buildID: 'decdvja', excludeList: '', logFile: '', maxHeap: '', projectScanType: fortifyJava(javaAddOptions: '', javaClasspath: 'C:\\jdk-11.0.0.1\\bin', javaSrcFiles: 'C:\\Fortify\\Fortify_SCA_and_Apps_22.1.0\\Samples\\basic\\eightball', javaVersion: '11')
+			}
+		}
+		stage('Fortify Scan')
+		{
+		steps
+			{
+			fortifyScan addJVMOptions: '', addOptions: '', buildID: 'decdvja', customRulepacks: '', logFile: '', maxHeap: '', resultsFile: 'decdvjaresults.fpr'
+			}
+		}
+		stage('Fortify Upload')
+		{
+		steps
+			{
+			fortifyUpload appName: 'decdvja', appVersion: '1.0', failureCriteria: '', filterSet: '', pollingInterval: '', resultsFile: 'decdvjaresults.fpr', timeout: '360'
+			}
+		}
 }
 }
