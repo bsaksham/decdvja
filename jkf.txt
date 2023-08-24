@@ -21,8 +21,8 @@ stage('Test')
 steps{
 echo "Testing the Code!!"
 bat "mvn test"
-}
-}
+	}
+	}
 stage('Fortify Clean')
 		{
 		steps
