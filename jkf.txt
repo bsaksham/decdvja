@@ -27,7 +27,7 @@ stage('Fortify Clean')
 		{
 		steps
 			{
-			fortifyClean addJVMOptions: '', buildID: 'decdvja', logFile: '', maxHeap: ''
+			fortifyClean addJVMOptions: '', buildID: 'decdvja0101', logFile: '', maxHeap: ''
 			}
 		}
 		stage('Fortify Update')
@@ -41,21 +41,21 @@ stage('Fortify Clean')
 		{
 		steps
 			{
-			fortifyTranslate addJVMOptions: '', buildID: 'decdvja', excludeList: '', logFile: '', maxHeap: '', projectScanType: fortifyJava(javaAddOptions: '', javaClasspath: 'C:\\jdk-11.0.0.1\\bin', javaSrcFiles: 'C:\\Fortify\\Fortify_SCA_and_Apps_22.1.0\\Samples\\basic\\eightball', javaVersion: '11')
+			fortifyTranslate addJVMOptions: '', buildID: 'decdvja01', excludeList: '', logFile: '', maxHeap: '', projectScanType: fortifyJava(javaAddOptions: '', javaClasspath: 'C:\\jdk-11.0.0.1\\bin', javaSrcFiles: 'C:\\Users\\saksham.b\\Desktop\\decdvja', javaVersion: '11')
 			}
 		}
 		stage('Fortify Scan')
 		{
 		steps
 			{
-			fortifyScan addJVMOptions: '', addOptions: '', buildID: 'decdvja', customRulepacks: '', logFile: '', maxHeap: '', resultsFile: 'decdvjaresults.fpr'
+			fortifyScan addJVMOptions: '', addOptions: '', buildID: 'decdvja01', customRulepacks: '', logFile: '', maxHeap: '', resultsFile: 'decdvja01results.fpr'
 			}
 		}
 		stage('Fortify Upload')
 		{
 		steps
 			{
-			fortifyUpload appName: 'decdvja', appVersion: '1.0', failureCriteria: '', filterSet: '', pollingInterval: '', resultsFile: 'decdvjaresults.fpr', timeout: '360'
+			fortifyUpload appName: 'decdvja01', appVersion: '1.0', failureCriteria: '', filterSet: '', pollingInterval: '', resultsFile: 'decdvja01results.fpr', timeout: '360'
 			}
 		}
 }
